@@ -29,7 +29,13 @@ build_cmake()
 	mkdir -p ${BUILD}/${folder}
 	local wd=${PWD}
 	cd ${BUILD}/${folder}
-	cmake ${wd}/${folder} ${options}
+	if [[ $(uname -s) == MINGW* ]] ;
+	then
+		QTS=$(find /c/Qt/Desktop/Qt/* -maxdepth 0 | sort -rn)
+		QTDIR=${QTS[0]}/mingw cmake ../..//${folder} -G "MSYS Makefiles" "-DDIRECTX=/c/Program Files/Microsoft DirectX SDK (June 2010)" ${options}
+	else
+		cmake ${wd}/${folder} ${options}
+	fi
 	if [ "$?" -ne "0" ]; then
 		echo "cmake for ${1} failed."
 		exit 1
