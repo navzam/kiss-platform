@@ -82,9 +82,10 @@ mkdir -p build
 
 build_cmake libkar 1
 build_cmake pcompiler 1
-build_cmake easydevice 1
+build_cmake libkovanserial 1
 build_cmake kiss 1
 build_cmake computer
+build_cmake ks2
 
 ############
 # Packages #
@@ -92,4 +93,5 @@ build_cmake computer
 
 build_cmake opencv 1 "-DWITH_FFMPEG=OFF -DCMAKE_INSTALL_PREFIX=${PWD}/opencv/kiss-prefix"
 build_cmake blobtastic
+build_cmake libkovan
 build_cmake libkiss2

@@ -48,9 +48,10 @@ update_svn()
 
 update_git git://github.com/kipr/libkar.git libkar
 update_git git://github.com/kipr/pcompiler.git pcompiler
-update_git git://github.com/kipr/easydevice.git easydevice
+update_git git://github.com/kipr/libkovanserial.git libkovanserial
 update_git git://github.com/kipr/kiss.git kiss
 update_git git://github.com/kipr/computer.git computer
+update_git git://github.com/kipr/ks2.git ks2
 
 ############
 # Packages #
@@ -58,4 +59,5 @@ update_git git://github.com/kipr/computer.git computer
 
 update_git git://github.com/kipr/blobtastic.git blobtastic
 update_git git://github.com/kipr/libkiss2.git libkiss2
+update_git git://github.com/kipr/libkovan.git libkovan
 update_git git://code.opencv.org/opencv.git opencv
