@@ -55,7 +55,9 @@ archive pcompiler git
 
 archive blobtastic git
 archive opencv git
+archive opencv git _host
 archive libkiss2 git
 archive libkovan git
 archive libkovan git _host
+archive zbar "10" "" "-0.10"
 archive zbar "10" _host "-0.10"

@@ -60,18 +60,36 @@ cp -r ks2/deploy/* ${KS2_BASE}
 # These install the necessary shared libraries
 LIBKOVAN_PACKAGE=$(ls ${BUILD}/libkovan-*)
 LIBKOVAN_HOST_PACKAGE=$(ls ${BUILD}/libkovan_host-*)
+OPENCV_HOST_PACKAGE=$(ls ${BUILD}/opencv_host-*)
+ZBAR_PACKAGE=$(ls ${BUILD}/zbar-*)
 ZBAR_HOST_PACKAGE=$(ls ${BUILD}/zbar_host-*)
 kissarchive -e ${PCOMPILER_PACKAGE%.*} ${KS2_EXTRAS}
 kissarchive -e ${LIBKAR_PACKAGE%.*} ${KS2_EXTRAS}
 kissarchive -e ${LIBKOVANSERIAL_PACKAGE%.*} ${KS2_EXTRAS}
 kissarchive -e ${ZBAR_HOST_PACKAGE%.*} ${KS2_EXTRAS}
 kissarchive -e ${LIBKOVAN_HOST_PACKAGE%.*} ${KS2_EXTRAS}
+kissarchive -e ${ZBAR_PACKAGE%.*} ${KS2_EXTRAS}/prefix
 kissarchive -e ${LIBKOVAN_PACKAGE%.*} ${KS2_EXTRAS}/prefix
 kissarchive -e ${OPENCV_PACKAGE%.*} ${KS2_EXTRAS}/prefix
+kissarchive -e ${OPENCV_HOST_PACKAGE%.*} ${KS2_EXTRAS}
 
 if [[ OS_NAME -eq "Darwin" ]]; then
 	# Make libkovan use bundled libzbar
-	install_name_tool -change "/usr/local/lib/libzbar.0.dylib" "@executable_path/../Frameworks/libzbar.0.dylib" "${PACKAGE}/ks2/ks2.app/Contents/Frameworks/libkovan.dylib"
+	framework_path="${PWD}/${PACKAGE}/ks2/ks2.app/Contents/Frameworks"
+	for i in $(ls -1 ${framework_path}/*.dylib)
+        do
+		install_name_tool -change "/usr/local/lib/libzbar.0.dylib" "@executable_path/../Frameworks/libzbar.0.dylib" ${i}
+		install_name_tool -change "lib/libopencv_core.2.4.dylib" "@executable_path/../Frameworks/libopencv_core.2.4.dylib" ${i}
+		install_name_tool -change "lib/libopencv_highgui.2.4.dylib" "@executable_path/../Frameworks/libopencv_highgui.2.4.dylib" ${i}
+		install_name_tool -change "lib/libopencv_imgproc.2.4.dylib" "@executable_path/../Frameworks/libopencv_imgproc.2.4.dylib" ${i}
+		install_name_tool -change "lib/libopencv_imgproc.2.4.dylib" "@executable_path/../Frameworks/libopencv_imgproc.2.4.dylib" ${i}
+        done
+
+	lib_path="${PWD}/${PACKAGE}/ks2/ks2.app/Contents/prefix/usr/lib"
+	for i in $(ls -1 ${lib_path}/*.dylib)
+        do
+		install_name_tool -change "/usr/local/lib/libzbar.0.dylib" "lib/libzbar.0.dylib" ${i}
+	done
 fi
 
 ############

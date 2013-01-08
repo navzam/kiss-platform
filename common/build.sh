@@ -129,5 +129,5 @@ build_cmake ks2
 build_cmake opencv 1 "-DWITH_FFMPEG=OFF -DCMAKE_INSTALL_PREFIX=${PWD}/opencv/kiss-prefix"
 build_cmake blobtastic
 build_cmake libkovan
-build_autotools zbar-0.10 1 "--without-xshm --without-xv --without-imagemagick --without-gtk --without-qt --without-python --without-jpeg --disable-video --prefix=${PWD}/zbar-0.10/prefix"
+build_autotools zbar-0.10 1 "--without-x --without-xshm --without-xv --without-imagemagick --without-gtk --without-qt --without-python --without-jpeg --disable-video --prefix=${PWD}/zbar-0.10/prefix"
 build_cmake libkiss2
