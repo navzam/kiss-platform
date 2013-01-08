@@ -23,6 +23,28 @@ update_git()
 	echo "${2} is now up-to-date."
 }
 
+update_tar()
+{
+	local repo=$1
+	local name=$2
+	if [ ! -d ${2}* ]; then
+		wget "${repo}"
+		if [ "$?" -ne "0" ]; then
+			echo "Updating tar repository ${repo} failed."
+			exit 1
+		fi
+		tar xf ${name}*.tar*
+		if [ "$?" -ne "0" ]; then
+			echo "Updating tar repository ${repo} failed."
+			exit 1
+		fi
+		rm -f "${name}*.tar*"
+		
+	fi
+	echo "${2} is now up-to-date."
+}
+
+
 update_svn()
 {
 	local repo=$1
@@ -59,5 +81,6 @@ update_git git://github.com/kipr/ks2.git ks2
 
 update_git git://github.com/kipr/blobtastic.git blobtastic
 update_git git://github.com/kipr/libkiss2.git libkiss2
+update_tar http://downloads.sourceforge.net/project/zbar/zbar/0.10/zbar-0.10.tar.bz2 zbar-0.10
 update_git git://github.com/kipr/libkovan.git libkovan
 update_git git://code.opencv.org/opencv.git opencv

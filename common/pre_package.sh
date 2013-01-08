@@ -60,12 +60,19 @@ cp -r ks2/deploy/* ${KS2_BASE}
 # These install the necessary shared libraries
 LIBKOVAN_PACKAGE=$(ls ${BUILD}/libkovan-*)
 LIBKOVAN_HOST_PACKAGE=$(ls ${BUILD}/libkovan_host-*)
+ZBAR_HOST_PACKAGE=$(ls ${BUILD}/zbar_host-*)
 kissarchive -e ${PCOMPILER_PACKAGE%.*} ${KS2_EXTRAS}
 kissarchive -e ${LIBKAR_PACKAGE%.*} ${KS2_EXTRAS}
 kissarchive -e ${LIBKOVANSERIAL_PACKAGE%.*} ${KS2_EXTRAS}
+kissarchive -e ${ZBAR_HOST_PACKAGE%.*} ${KS2_EXTRAS}
 kissarchive -e ${LIBKOVAN_HOST_PACKAGE%.*} ${KS2_EXTRAS}
 kissarchive -e ${LIBKOVAN_PACKAGE%.*} ${KS2_EXTRAS}/prefix
 kissarchive -e ${OPENCV_PACKAGE%.*} ${KS2_EXTRAS}/prefix
+
+if [[ OS_NAME -eq "Darwin" ]]; then
+	# Make libkovan use bundled libzbar
+	install_name_tool -change "/usr/local/lib/libzbar.0.dylib" "@executable_path/../Frameworks/libzbar.0.dylib" "${PACKAGE}/ks2/ks2.app/Contents/Frameworks/libkovan.dylib"
+fi
 
 ############
 # KISS IDE #
