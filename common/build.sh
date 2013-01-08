@@ -31,8 +31,8 @@ build_cmake()
 	cd ${BUILD}/${folder}
 	if [[ $(uname -s) == MINGW* ]] ;
 	then
-		QTS=$(find /c/Qt/Desktop/Qt/* -maxdepth 0 | sort -rn)
-		QTDIR=${QTS[0]}/mingw cmake ../..//${folder} -G "MSYS Makefiles" "-DDIRECTX=/c/Program Files/Microsoft DirectX SDK (June 2010)" ${options}
+		QTS=$(find /c/Qt/* -maxdepth 0 | sort -rn)
+		QTDIR=${QTS[0]} cmake ${wd}/${folder} -G "MSYS Makefiles" "-DDIRECTX=/c/Program Files/Microsoft DirectX SDK (June 2010)" --no-warn-unused-cli ${options}
 	else
 		cmake ${wd}/${folder} ${options}
 	fi
@@ -88,7 +88,7 @@ mkdir -p build
 
 build_cmake libkar 1
 build_cmake pcompiler 1
-build_cmake easydevice 1
+build_cmake libkovanserial 1
 build_cmake kiss 1
 build_cmake computer
 

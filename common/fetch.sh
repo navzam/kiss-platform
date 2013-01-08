@@ -48,7 +48,7 @@ update_svn()
 
 update_git git://github.com/kipr/libkar.git libkar
 update_git git://github.com/kipr/pcompiler.git pcompiler
-update_git git://github.com/kipr/easydevice.git easydevice
+update_git git://github.com/kipr/libkovanserial.git libkovanserial
 update_git git://github.com/kipr/kiss.git kiss
 update_git git://github.com/kipr/computer.git computer
 
