@@ -1,0 +1,5 @@
+usr
+
+usr/lib
+
+prefix/lib/libzbar.0.dylib => usr/lib/libzbar.0.dylib
