@@ -34,7 +34,7 @@ build_autotools()
 		echo "cmake for ${1} failed."
 		exit 1
 	fi
-	make -j4
+	make -j1
 	if [ "$?" -ne "0" ]; then
 		echo "make for ${1} failed."
 		exit 1
@@ -60,8 +60,7 @@ build_cmake()
 	cd ${BUILD}/${folder}
 	if [[ $(uname -s) == MINGW* ]] ;
 	then
-		QTS=$(find /c/Qt/* -maxdepth 0 | sort -rn)
-		QTDIR=${QTS[0]} cmake ${wd}/${folder} -G "MSYS Makefiles" "-DDIRECTX=/c/Program Files/Microsoft DirectX SDK (June 2010)" --no-warn-unused-cli ${options}
+		QTDIR=/c/Qt cmake ${wd}/${folder} -G "MSYS Makefiles" "-DDIRECTX=/c/Program Files/Microsoft DirectX SDK (June 2010)" --no-warn-unused-cli ${options}
 	else
 		cmake ${wd}/${folder} ${options}
 	fi
@@ -93,7 +92,7 @@ build_make()
 	local wd=${PWD}
 	
 	cd ${folder}
-	make -j4 ${options}
+	make -jq ${options}
 	if [ "$?" -ne "0" ]; then
 		echo "make for ${1} failed."
 		exit 1

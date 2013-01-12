@@ -9,10 +9,11 @@ OS_NAME=$(uname -s)
 SUFFIX=""
 
 # Mac OS X
-if [[ OS_NAME -eq "Darwin" ]]; then
+if [[ ${OS_NAME} == "Darwin" ]]; then
 	SUFFIX="osx"
+else
+	SUFFIX="win"
 fi
-
 
 archive()
 {
@@ -28,7 +29,8 @@ archive()
 	fi
 	
 	cd ${wd}/${package}${extra_path}
-	kissarchive -c "${package}" "${version}" "${wd}/${ARCHIVES}/${package}${extra}_${SUFFIX}.kam"
+	echo "${wd}/${package}${extra_path}"
+	PATH="$PATH:${wd}/prefix/bin:${wd}/prefix/lib:/c/Qt/bin" kissarchive -c "${package}" "${version}" "${wd}/${ARCHIVES}/${package}${extra}_${SUFFIX}.kam"
 	if [ "$?" -ne "0" ]; then
 		echo "archive for ${1} failed."
 		exit 1

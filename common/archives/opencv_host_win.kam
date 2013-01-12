@@ -1,0 +1,4 @@
+kiss-prefix/bin/libopencv_core249.dll => libopencv_core249.dll
+kiss-prefix/bin/libopencv_features2d249.dll => libopencv_features2d249.dll
+kiss-prefix/bin/libopencv_highgui249.dll => libopencv_highgui249.dll
+kiss-prefix/bin/libopencv_imgproc249.dll => libopencv_imgproc249.dll

@@ -1,0 +1,21 @@
+usr
+
+usr/include
+usr/include/blobtastic
+
+include/basic_detector.hpp => usr/include/blobtastic/basic_detector.hpp
+include/blob.hpp => usr/include/blobtastic/blob.hpp
+include/blobtastic.h => usr/include/blobtastic/blobtastic.h
+include/blobtastic.hpp => usr/include/blobtastic/blobtastic.hpp
+include/camera.h => usr/include/blobtastic/camera.h
+include/camera.hpp => usr/include/blobtastic/camera.hpp
+include/camera_format.hpp => usr/include/blobtastic/camera_format.hpp
+include/camera_p.hpp => usr/include/blobtastic/camera_p.hpp
+include/channel.hpp => usr/include/blobtastic/channel.hpp
+include/detector.hpp => usr/include/blobtastic/detector.hpp
+include/image.hpp => usr/include/blobtastic/image.hpp
+
+usr/lib
+
+lib/libblobtastic.dll => usr/lib/libblobtastic.dll
+lib/libblobtastic.dll.a => usr/lib/libblobtastic.dll.a
