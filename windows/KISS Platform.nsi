@@ -56,47 +56,23 @@ Section "KISS Platform ${VERSION} ${APPVERSIONSTRING}" KISSPLATFORM
 	SetOverwrite on  ; yes, we want to overwrite existing files
 	SectionIn RO     ; no, we don't want people to be able to uncheck this section   
 	
-	SetOutPath "$INSTDIR\kiss\interfaces"
-	File "${KISS_IDE_DIR}\interfaces\libkovan_interface.dll"
-	File "${KISS_IDE_DIR}\interfaces\libkovan_serial_interface.dll"
-	
-	SetOutPath "$INSTDIR\kiss\lexers"
-	File "${KISS_IDE_DIR}\lexers\libC_lexer.dll"
-	File "${KISS_IDE_DIR}\lexers\libcpp_lexer.dll"
-	File "${KISS_IDE_DIR}\lexers\libjava_lexer.dll"
-	File "${KISS_IDE_DIR}\lexers\libpython_lexer.dll"
-	
 	SetOutPath "$INSTDIR\kiss"
-	File "${KISS_IDE_DIR}\KISS.exe"
-	File "${KISS_IDE_DIR}\libgcc_s_dw2-1.dll"
-	File "${KISS_IDE_DIR}\mingwm10.dll"
-	File "${KISS_IDE_DIR}\QtCore4.dll"
-	File "${KISS_IDE_DIR}\QtWebKit4.dll"
-	File "${KISS_IDE_DIR}\QtNetwork4.dll"
-	File "${KISS_IDE_DIR}\QtGui4.dll"
-	File "${KISS_IDE_DIR}\qscintilla2.dll"
-	File "${KISS_IDE_DIR}\libkovanserial.dll"
-	File "${KISS_IDE_DIR}\libpcompiler.dll"
-	File "${KISS_IDE_DIR}\libkar.dll"
-	File "${KISS_IDE_DIR}\qscintilla2.dll"
-	File "${KISS_IDE_DIR}\QtScript4.dll"
-	File "${KISS_IDE_DIR}\QtSql4.dll"
-	File "${KISS_IDE_DIR}\QtXml4.dll"
-	File "${KISS_IDE_DIR}\QtXmlPatterns4.dll"
-	File "${KISS_IDE_DIR}\QtDeclarative4.dll"
-	File "${KISS_IDE_DIR}\libstdc++-6.dll"
+	File /r "${KISS_IDE_DIR}"
 	
-	SetOutPath "$INSTDIR\kiss"
-	File "${KS2_DIR}\ks2.exe"
+	SetOutPath "$INSTDIR\"
+	
+	File /r "${KS2_DIR}"
+	SetOutPath "$INSTDIR\ks2"
+	
 	File "${KISS_IDE_DIR}\libgcc_s_dw2-1.dll"
 	File "${KISS_IDE_DIR}\mingwm10.dll"
 	File "${KISS_IDE_DIR}\QtCore4.dll"
 	File "${KISS_IDE_DIR}\QtNetwork4.dll"
 	File "${KISS_IDE_DIR}\QtGui4.dll"
-	File "${KISS_IDE_DIR}\libkovanserial.dll"
-	File "${KISS_IDE_DIR}\libpcompiler.dll"
-	File "${KISS_IDE_DIR}\libkar.dll"
 	File "${KISS_IDE_DIR}\libstdc++-6.dll"
+	File "${MINGW}\bin\libgmp-10.dll"
+	File "${MINGW}\bin\libmpc-2.dll"
+	File "${MINGW}\bin\libmpfr-1.dll"
 	
 	File /r "${KS2_DIR}\prefix"
 	
@@ -104,40 +80,6 @@ Section "KISS Platform ${VERSION} ${APPVERSIONSTRING}" KISSPLATFORM
 	File /r "C:\Redist\MinGW"
 	
 	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;End of KISS Files 
-	
-	
-	; The change log isn't in the deploy directory so I'd probably forget it
-	; File "..\doc\ChangeLog.txt"
-
-	; Set the dlls and frameworks to hidden files on Windows
-	SetFileAttributes "$INSTDIR\kiss\QtCore4.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\kiss\QtGui4.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\kiss\QtWebKit4.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\kiss\QtNetwork4.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\kiss\mingwm10.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\kiss\libgcc_s_dw2-1.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\kiss\qscintilla2.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\kiss\libkovanserial.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\kiss\libpcompiler.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\kiss\libkar.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\kiss\qscintilla2.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\kiss\QtScript4.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\kiss\QtSql4.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\kiss\QtXml4.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\kiss\QtXmlPatterns4.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\kiss\QtDeclarative4.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\kiss\libstdc++-6.dll" FILE_ATTRIBUTE_HIDDEN
-	
-	SetFileAttributes "$INSTDIR\ks2\QtCore4.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\ks2\QtGui4.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\ks2\QtNetwork4.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\ks2\mingwm10.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\ks2\libgcc_s_dw2-1.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\ks2\libkovanserial.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\ks2\libpcompiler.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\ks2\libkar.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\ks2\qscintilla2.dll" FILE_ATTRIBUTE_HIDDEN
-	SetFileAttributes "$INSTDIR\ks2\libstdc++-6.dll" FILE_ATTRIBUTE_HIDDEN
 	
 	; Set Up Start Menu Entry and Desktop Short Cut
 	

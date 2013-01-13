@@ -6,6 +6,8 @@ PACKAGE=package
 
 OS_NAME=$(uname -s)
 
+export PATH="$PATH:${PWD}/prefix/bin:${PWD}/prefix/lib:/c/Qt/bin" 
+
 rm -Rf ${PACKAGE}
 mkdir -p ${PACKAGE}
 
@@ -22,7 +24,7 @@ COMPUTER_BASE="${PACKAGE}/computer"
 COMPUTER_EXTRAS="${COMPUTER_BASE}"
 
 # Mac OS X Bundle
-if [[ OS_NAME -eq "Darwin" ]]; then
+if [[ ${OS_NAME} == "Darwin" ]]; then
 	COMPUTER_EXTRAS="${COMPUTER_BASE}/computer.app/Contents"
 fi
 
@@ -49,7 +51,7 @@ KS2_BASE="${PACKAGE}/ks2"
 KS2_EXTRAS="${KS2_BASE}"
 
 # Mac OS X Bundle
-if [[ OS_NAME -eq "Darwin" ]]; then
+if [[ ${OS_NAME} == "Darwin" ]]; then
 	KS2_EXTRAS="${KS2_BASE}/ks2.app/Contents"
 fi
 
@@ -73,7 +75,7 @@ kissarchive -e ${LIBKOVAN_PACKAGE%.*} ${KS2_EXTRAS}/prefix
 kissarchive -e ${OPENCV_PACKAGE%.*} ${KS2_EXTRAS}/prefix
 kissarchive -e ${OPENCV_HOST_PACKAGE%.*} ${KS2_EXTRAS}
 
-if [[ OS_NAME -eq "Darwin" ]]; then
+if [[ ${OS_NAME} == "Darwin" ]]; then
 	# Make libkovan use bundled libzbar
 	framework_path="${PWD}/${PACKAGE}/ks2/ks2.app/Contents/Frameworks"
 	for i in $(ls -1 ${framework_path}/*.dylib)
@@ -102,7 +104,7 @@ KISS_EXTRAS="${KISS_BASE}"
 mkdir -p ${KISS_BASE}
 
 # Mac OS X Bundle
-if [[ OS_NAME -eq "Darwin" ]]; then
+if [[ ${OS_NAME} == "Darwin" ]]; then
 	KISS_EXTRAS="${KISS_BASE}/KISS.app/Contents"
 	# Install Base
 	cp -r kiss/deploy/KISS.app ${KISS_BASE}
