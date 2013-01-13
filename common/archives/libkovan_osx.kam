@@ -5,12 +5,14 @@ lib/libkovan.dylib => usr/lib/libkovan.dylib
 
 usr/include
 usr/include/kovan
+include/kovan/audio.h => usr/include/kovan/audio.h
 include/kovan/accel.h => usr/include/kovan/accel.h
 include/kovan/accel.hpp => usr/include/kovan/accel.hpp
 include/kovan/analog.h => usr/include/kovan/analog.h
 include/kovan/analog.hpp => usr/include/kovan/analog.hpp
 include/kovan/battery.h => usr/include/kovan/battery.h
 include/kovan/battery.hpp => usr/include/kovan/battery.hpp
+include/kovan/botball.h => usr/include/kovan/botball.h
 include/kovan/button.h => usr/include/kovan/button.h
 include/kovan/button.hpp => usr/include/kovan/button.hpp
 include/kovan/button_ids.hpp => usr/include/kovan/button_ids.hpp
@@ -27,6 +29,7 @@ include/kovan/datalog.h => usr/include/kovan/datalog.h
 include/kovan/datalog.hpp => usr/include/kovan/datalog.hpp
 include/kovan/digital.h => usr/include/kovan/digital.h
 include/kovan/digital.hpp => usr/include/kovan/digital.hpp
+include/kovan/display.h => usr/include/kovan/display.h
 include/kovan/draw.h => usr/include/kovan/draw.h
 include/kovan/draw.hpp => usr/include/kovan/draw.hpp
 include/kovan/general.h => usr/include/kovan/general.h
@@ -44,6 +47,8 @@ include/kovan/sensor.hpp => usr/include/kovan/sensor.hpp
 include/kovan/sensor_logic.hpp => usr/include/kovan/sensor_logic.hpp
 include/kovan/servo.h => usr/include/kovan/servo.h
 include/kovan/servo.hpp => usr/include/kovan/servo.hpp
+include/kovan/thread.h => usr/include/kovan/thread.h
+include/kovan/thread.hpp => usr/include/kovan/thread.hpp
 include/kovan/util.h => usr/include/kovan/util.h
 include/kovan/util.hpp => usr/include/kovan/util.hpp
 include/kovan/wifi.h => usr/include/kovan/wifi.h
