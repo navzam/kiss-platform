@@ -92,7 +92,7 @@ build_make()
 	local wd=${PWD}
 	
 	cd ${folder}
-	make -jq ${options}
+	make -j1 ${options}
 	if [ "$?" -ne "0" ]; then
 		echo "make for ${1} failed."
 		exit 1
