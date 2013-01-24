@@ -2,7 +2,7 @@
 !define APPNAME "KISS Platform"
 !define APPMAJORVERSION "4"
 !define APPMINORVERSION "0"
-!define BUILDNUMBER "0"
+!define BUILDNUMBER "3"
 !define APPVERSIONSTRING "Oxygen"
 
 !define VERSION "${APPMAJORVERSION}.${APPMINORVERSION}.${BUILDNUMBER}"
@@ -12,6 +12,9 @@
 
 !define MINGW_DIR "C:\MinGW"
 !define KISS_PLATFORM_DIR "${MINGW_DIR}\msys\1.0\home\kipr\kiss-platform"
+
+!define MINGW_DLLS_DIR "${MINGW_DIR}\bin"
+!define QT_DLLS_DIR "C:\Qt\lib"
 
 ;Files driver installer utility files
 !include "nsis-lib\winver.nsh"
@@ -48,54 +51,90 @@ OutFile "..\releases\${INSTALL_FILENAME}.exe"
 !insertmacro MUI_LANGUAGE "English"
 !insertmacro MUI_RESERVEFILE_LANGDLL
 
-!define KISS_IDE_DIR "${KISS_PLATFORM_DIR}\common\kiss\deploy"
-!define KS2_DIR "${KISS_PLATFORM_DIR}\common\ks2\deploy"
+!define LOCAL_DLL_DIR "${KISS_PLATFORM_DIR}\common\prefix\lib"
 
-Section "KISS Platform ${VERSION} ${APPVERSIONSTRING}" KISSPLATFORM
-	; Set Section properties
-	SetOverwrite on  ; yes, we want to overwrite existing files
-	SectionIn RO     ; no, we don't want people to be able to uncheck this section   
+!define KISS_IDE_DIR "${KISS_PLATFORM_DIR}\common\package\kiss"
+!define KS2_DIR "${KISS_PLATFORM_DIR}\common\package\ks2"
+!define COMPUTER_DIR "${KISS_PLATFORM_DIR}\common\package\computer"
+
+Section "KISS IDE ${VERSION} ${APPVERSIONSTRING}" KISSIDE
+	SetOverwrite on
+	SectionIn RO
 	
-	SetOutPath "$INSTDIR\kiss"
+	SetOutPath "$INSTDIR"
 	File /r "${KISS_IDE_DIR}"
+	SetOutPath "$INSTDIR\kiss"
+	File "${QT_DLLS_DIR}\QtCore4.dll"
+	File "${QT_DLLS_DIR}\QtGui4.dll"
+	File "${QT_DLLS_DIR}\QtSql4.dll"
+	File "${QT_DLLS_DIR}\QtScript4.dll"
+	File "${QT_DLLS_DIR}\QtDeclarative4.dll"
+	File "${QT_DLLS_DIR}\QtNetwork4.dll"
+	File "${QT_DLLS_DIR}\QtScriptTools4.dll"
+	File "${QT_DLLS_DIR}\QtXml4.dll"
+	File "${QT_DLLS_DIR}\QtXmlPatterns4.dll"
+	File "${QT_DLLS_DIR}\qscintilla2.dll"
 	
+	File "${MINGW_DLLS_DIR}\mingwm10.dll"
+	File "${MINGW_DLLS_DIR}\libgcc_s_dw2-1.dll"
+	File "${MINGW_DLLS_DIR}\libstdc++-6.dll"
+	
+	
+	CreateShortCut "$DESKTOP\KISS IDE ${VERSION}.lnk" "$INSTDIR\kiss\KISS.exe"
+	CreateDirectory  "$SMPROGRAMS\${INSTALL_FILENAME}"
+	CreateShortCut "$SMPROGRAMS\${INSTALL_FILENAME}\KISS IDE ${VERSION}.lnk" "$INSTDIR\kiss\KISS.exe"
+SectionEnd
+
+Section "MinGW Compiler" MINGW_COMPILER
+	SectionIn RO
+	SetOutPath "$INSTDIR"
+	File /r "C:\Redist\MinGW"
+SectionEnd
+
+Section "KIPR's 2D Simulator" KS2
+	SectionIn RO
 	SetOutPath "$INSTDIR\"
 	
 	File /r "${KS2_DIR}"
 	SetOutPath "$INSTDIR\ks2"
 	
-	File "${KISS_IDE_DIR}\libgcc_s_dw2-1.dll"
-	File "${KISS_IDE_DIR}\mingwm10.dll"
-	File "${KISS_IDE_DIR}\QtCore4.dll"
-	File "${KISS_IDE_DIR}\QtNetwork4.dll"
-	File "${KISS_IDE_DIR}\QtGui4.dll"
-	File "${KISS_IDE_DIR}\libstdc++-6.dll"
-	File "${MINGW}\bin\libgmp-10.dll"
-	File "${MINGW}\bin\libmpc-2.dll"
-	File "${MINGW}\bin\libmpfr-1.dll"
-	
-	File /r "${KS2_DIR}\prefix"
-	
-	SetOutPath "$INSTDIR"
-	File /r "C:\Redist\MinGW"
-	
-	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;End of KISS Files 
-	
-	; Set Up Start Menu Entry and Desktop Short Cut
-	
-	; Shortcuts
-	CreateShortCut "$DESKTOP\KISS IDE ${VERSION}.lnk" "$INSTDIR\kiss\KISS.exe"
+	File "${QT_DLLS_DIR}\QtCore4.dll"
+	File "${QT_DLLS_DIR}\QtGui4.dll"
+	File "${QT_DLLS_DIR}\QtNetwork4.dll"
+	File "${MINGW_DLLS_DIR}\mingwm10.dll"
+	File "${MINGW_DLLS_DIR}\libgcc_s_dw2-1.dll"
+	File "${MINGW_DLLS_DIR}\libstdc++-6.dll"
+	File "${MINGW_DLLS_DIR}\libgmp-10.dll"
+	File "${MINGW_DLLS_DIR}\libmpc-2.dll"
+	File "${MINGW_DLLS_DIR}\libmpfr-1.dll"
+	File "${MINGW_DLLS_DIR}\libiconv-2.dll"
+	File "${MINGW_DLLS_DIR}\pthreadGC2.dll"
+
 	CreateShortCut "$DESKTOP\KIPR's 2D Simulator ${VERSION}.lnk" "$INSTDIR\ks2\ks2.exe"
-	CreateDirectory  "$SMPROGRAMS\${INSTALL_FILENAME}"
-	CreateShortCut "$SMPROGRAMS\${INSTALL_FILENAME}\KISS IDE ${VERSION}.lnk" "$INSTDIR\kiss\KISS.exe"
 	CreateShortCut "$SMPROGRAMS\${INSTALL_FILENAME}\KIPR's 2D Simulator ${VERSION}.lnk" "$INSTDIR\ks2\ks2.exe"
 SectionEnd
 
-; TODO: THIS IS BROKEN ON WINDOWS.
+Section "KISS IDE Computer Target" COMPUTER
+	SectionIn RO
+	SetOutPath "$INSTDIR\"
+	
+	File /r "${COMPUTER_DIR}"
+	SetOutPath "$INSTDIR\computer"
+	
+	File /r "${COMPUTER_DIR}\prefix"
+	
+	File "${QT_DLLS_DIR}\QtCore4.dll"
+	File "${QT_DLLS_DIR}\QtGui4.dll"
+	File "${QT_DLLS_DIR}\QtNetwork4.dll"
+
+	CreateShortCut "$DESKTOP\KISS IDE ${VERSION} Computer Target.lnk" "$INSTDIR\computer\computer.exe"
+	CreateShortCut "$SMPROGRAMS\${INSTALL_FILENAME}\KISS IDE ${VERSION} Computer Target.lnk" "$INSTDIR\computer\computer.exe"
+SectionEnd
+
 Section "KIPR Link Driver" LINK
 	SetOutPath "$WINDIR\KIPRLinkDriver"
 	
-	File "${KISS_IDE_DIR}\..\scripts\kiprlink.inf"
+	File "${KISS_PLATFORM_DIR}\common\kiss\scripts\kiprlink.inf"
 	
 	Push "$WINDIR\KIPRLinkDriver"
 	;  -- the directory of the .inf file
@@ -116,13 +155,12 @@ SectionEnd
 
 ; Modern install component descriptions
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
-!insertmacro MUI_DESCRIPTION_TEXT ${KISSPLATFORM} "KISS Platform ${VERSION} ${APPVERSIONSTRING}"
+!insertmacro MUI_DESCRIPTION_TEXT ${KISSIDE} "KISS IDE ${VERSION} ${APPVERSIONSTRING}"
 !insertmacro MUI_DESCRIPTION_TEXT ${LINK} "KIPR Link Driver"
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 ;Uninstall section
 Section Uninstall
-
 	;Remove from registry...
 	DeleteRegKey HKLM "SOFTWARE\${APPNAMEANDVERSION}"
 	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAMEANDVERSION}"
@@ -131,13 +169,12 @@ Section Uninstall
 	Delete "$INSTDIR\uninstall.exe"
 
 	; Delete Desktop Short Cut and Start Menu Entry
-	Delete "$DESKTOP\${APPNAMEANDVERSION}.lnk"
+	Delete "$DESKTOP\KISS IDE*.lnk"
 	Delete "$SMPROGRAMS\${APPNAMEANDVERSION}\${APPNAMEANDVERSION}.lnk"
-  RMDir  "$SMPROGRAMS\${APPNAMEANDVERSION}"
+	RMDir  "$SMPROGRAMS\${APPNAMEANDVERSION}"
 
-	; Clean up KISS-C
+	; Clean up KISS Platform
 	RMDir /r "$INSTDIR\"
-
 SectionEnd
 
 BrandingText "KISS Institute For Practical Robotics"
