@@ -84,3 +84,4 @@ update_git git://github.com/kipr/libkiss2.git libkiss2
 update_tar http://downloads.sourceforge.net/project/zbar/zbar/0.10/zbar-0.10.tar.bz2 zbar-0.10
 update_git git://github.com/kipr/libkovan.git libkovan
 update_git git://code.opencv.org/opencv.git opencv
+update_git git://github.com/kipr/link-docs.git link-docs

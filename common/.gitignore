@@ -9,6 +9,7 @@ package
 opencv
 libkiss
 pcompiler
+link-docs
 blobtastic
 build
 zbar*
