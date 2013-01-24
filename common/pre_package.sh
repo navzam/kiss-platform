@@ -113,6 +113,9 @@ else
 	cp -r kiss/deploy/* ${KISS_BASE}
 fi
 
+mkdir -p ${KISS_EXTRAS}/docs
+cp -r link-docs/* ${KISS_EXTRAS}/docs
+
 # These install the necessary shared libraries
 kissarchive -e ${PCOMPILER_PACKAGE%.*} ${KISS_EXTRAS}
 kissarchive -e ${LIBKOVANSERIAL_PACKAGE%.*} ${KISS_EXTRAS}

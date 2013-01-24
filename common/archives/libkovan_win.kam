@@ -31,6 +31,7 @@ include/kovan/datalog.hpp => usr/include/kovan/datalog.hpp
 include/kovan/digital.h => usr/include/kovan/digital.h
 include/kovan/digital.hpp => usr/include/kovan/digital.hpp
 include/kovan/display.h => usr/include/kovan/display.h
+include/kovan/export.h => usr/include/kovan/export.h
 include/kovan/draw.h => usr/include/kovan/draw.h
 include/kovan/draw.hpp => usr/include/kovan/draw.hpp
 include/kovan/general.h => usr/include/kovan/general.h
