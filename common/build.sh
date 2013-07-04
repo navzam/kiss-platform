@@ -34,7 +34,7 @@ build_autotools()
 		echo "cmake for ${1} failed."
 		exit 1
 	fi
-	make -j1
+	make -j4
 	if [ "$?" -ne "0" ]; then
 		echo "make for ${1} failed."
 		exit 1
@@ -68,7 +68,7 @@ build_cmake()
 		echo "cmake for ${1} failed."
 		exit 1
 	fi
-	make -j1
+	make -j4
 	if [ "$?" -ne "0" ]; then
 		echo "make for ${1} failed."
 		exit 1
@@ -127,6 +127,3 @@ build_cmake ks2
 ############
 # Packages #
 ############
-
-build_cmake blobtastic
-build_cmake libkiss2

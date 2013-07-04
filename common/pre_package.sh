@@ -33,15 +33,40 @@ mkdir -p ${COMPUTER_BASE}
 cp -r computer/deploy/* ${COMPUTER_BASE}
 
 # These install the necessary shared libraries
+LIBKOVAN_PACKAGE=$(ls ${BUILD}/libkovan-*)
+LIBKOVAN_HOST_PACKAGE=$(ls ${BUILD}/libkovan_host-*)
+OPENCV_HOST_PACKAGE=$(ls ${BUILD}/opencv_host-*)
+ZBAR_PACKAGE=$(ls ${BUILD}/zbar-*)
+ZBAR_HOST_PACKAGE=$(ls ${BUILD}/zbar_host-*)
 kissarchive -e ${PCOMPILER_PACKAGE%.*} ${COMPUTER_EXTRAS}
 kissarchive -e ${LIBKAR_PACKAGE%.*} ${COMPUTER_EXTRAS}
-
-BLOBTASTIC_PACKAGE=$(ls ${BUILD}/blobtastic-*)
-LIBKISS2_PACKAGE=$(ls ${BUILD}/libkiss2-*)
-
+kissarchive -e ${LIBKOVANSERIAL_PACKAGE%.*} ${COMPUTER_EXTRAS}
+kissarchive -e ${ZBAR_HOST_PACKAGE%.*} ${COMPUTER_EXTRAS}
+kissarchive -e ${LIBKOVAN_HOST_PACKAGE%.*} ${COMPUTER_EXTRAS}
+kissarchive -e ${ZBAR_PACKAGE%.*} ${COMPUTER_EXTRAS}/prefix
+kissarchive -e ${LIBKOVAN_PACKAGE%.*} ${COMPUTER_EXTRAS}/prefix
 kissarchive -e ${OPENCV_PACKAGE%.*} ${COMPUTER_EXTRAS}/prefix
-kissarchive -e ${BLOBTASTIC_PACKAGE%.*} ${COMPUTER_EXTRAS}/prefix
-kissarchive -e ${LIBKISS2_PACKAGE%.*} ${COMPUTER_EXTRAS}/prefix
+kissarchive -e ${OPENCV_HOST_PACKAGE%.*} ${COMPUTER_EXTRAS}
+
+if [[ ${OS_NAME} == "Darwin" ]]; then
+	# Make libkovan use bundled libzbar
+	framework_path="${PWD}/${PACKAGE}/computer/computer.app/Contents/Frameworks"
+	for i in $(ls -1 ${framework_path}/*.dylib)
+        do
+		install_name_tool -change "/usr/local/lib/libzbar.0.dylib" "@executable_path/../Frameworks/libzbar.0.dylib" ${i}
+		install_name_tool -change "lib/libopencv_core.2.4.dylib" "@executable_path/../Frameworks/libopencv_core.2.4.dylib" ${i}
+		install_name_tool -change "lib/libopencv_highgui.2.4.dylib" "@executable_path/../Frameworks/libopencv_highgui.2.4.dylib" ${i}
+		install_name_tool -change "lib/libopencv_imgproc.2.4.dylib" "@executable_path/../Frameworks/libopencv_imgproc.2.4.dylib" ${i}
+		install_name_tool -change "lib/libopencv_imgproc.2.4.dylib" "@executable_path/../Frameworks/libopencv_imgproc.2.4.dylib" ${i}
+        done
+
+	lib_path="${PWD}/${PACKAGE}/computer/computer.app/Contents/prefix/usr/lib"
+	for i in $(ls -1 ${lib_path}/*.dylib)
+        do
+		install_name_tool -change "/usr/local/lib/libzbar.0.dylib" "lib/libzbar.0.dylib" ${i}
+	done
+fi
+
 
 ###########
 #   ks2   #

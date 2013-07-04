@@ -55,7 +55,6 @@ archive pcompiler git
 # Packages #
 ############
 
-archive blobtastic git
 archive opencv git
 archive opencv git _host
 archive libkiss2 git

@@ -13,6 +13,7 @@ update_git()
 	else
 		local wd=${PWD}
 		cd "$2"
+		echo "${GIT} pull -q"
 		${GIT} pull -q
 		cd ${wd}
 	fi
@@ -79,8 +80,6 @@ update_git git://github.com/kipr/ks2.git ks2
 # Packages #
 ############
 
-update_git git://github.com/kipr/blobtastic.git blobtastic
-update_git git://github.com/kipr/libkiss2.git libkiss2
 update_tar http://downloads.sourceforge.net/project/zbar/zbar/0.10/zbar-0.10.tar.bz2 zbar-0.10
 update_git git://github.com/kipr/libkovan.git libkovan
 update_git git://code.opencv.org/opencv.git opencv
