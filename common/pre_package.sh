@@ -49,6 +49,11 @@ kissarchive -e ${OPENCV_PACKAGE%.*} ${COMPUTER_EXTRAS}/prefix
 kissarchive -e ${OPENCV_HOST_PACKAGE%.*} ${COMPUTER_EXTRAS}
 
 if [[ ${OS_NAME} == "Darwin" ]]; then
+	echo "${COMPUTER_EXTRAS}/MacOS/computer"
+	install_name_tool -change "lib/libopencv_core.2.4.dylib" "@executable_path/../Frameworks/libopencv_core.2.4.dylib" ${COMPUTER_EXTRAS}/MacOS/computer
+	install_name_tool -change "lib/libopencv_highgui.2.4.dylib" "@executable_path/../Frameworks/libopencv_highgui.2.4.dylib" ${COMPUTER_EXTRAS}/MacOS/computer
+	install_name_tool -change "lib/libopencv_imgproc.2.4.dylib" "@executable_path/../Frameworks/libopencv_imgproc.2.4.dylib" ${COMPUTER_EXTRAS}/MacOS/computer
+	
 	# Make libkovan use bundled libzbar
 	framework_path="${PWD}/${PACKAGE}/computer/computer.app/Contents/Frameworks"
 	for i in $(ls -1 ${framework_path}/*.dylib)
@@ -56,7 +61,6 @@ if [[ ${OS_NAME} == "Darwin" ]]; then
 		install_name_tool -change "/usr/local/lib/libzbar.0.dylib" "@executable_path/../Frameworks/libzbar.0.dylib" ${i}
 		install_name_tool -change "lib/libopencv_core.2.4.dylib" "@executable_path/../Frameworks/libopencv_core.2.4.dylib" ${i}
 		install_name_tool -change "lib/libopencv_highgui.2.4.dylib" "@executable_path/../Frameworks/libopencv_highgui.2.4.dylib" ${i}
-		install_name_tool -change "lib/libopencv_imgproc.2.4.dylib" "@executable_path/../Frameworks/libopencv_imgproc.2.4.dylib" ${i}
 		install_name_tool -change "lib/libopencv_imgproc.2.4.dylib" "@executable_path/../Frameworks/libopencv_imgproc.2.4.dylib" ${i}
         done
 
