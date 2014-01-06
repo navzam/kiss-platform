@@ -73,8 +73,7 @@ update_git git://github.com/kipr/libkar.git libkar
 update_git git://github.com/kipr/pcompiler.git pcompiler
 update_git git://github.com/kipr/libkovanserial.git libkovanserial
 update_git git://github.com/kipr/kiss.git kiss
-update_git git://github.com/kipr/computer.git computer
-update_git git://github.com/kipr/ks2.git ks2
+update_git git://github.com/kipr/cs2.git cs2
 
 ############
 # Packages #
@@ -82,5 +81,5 @@ update_git git://github.com/kipr/ks2.git ks2
 
 update_tar http://downloads.sourceforge.net/project/zbar/zbar/0.10/zbar-0.10.tar.bz2 zbar-0.10
 update_git git://github.com/kipr/libkovan.git libkovan
-update_git git://code.opencv.org/opencv.git opencv
+update_git git://github.com/Itseez/opencv opencv
 update_git git://github.com/kipr/link-docs.git link-docs

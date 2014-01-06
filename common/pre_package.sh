@@ -16,21 +16,21 @@ LIBKOVANSERIAL_PACKAGE=$(ls ${BUILD}/libkovanserial-*)
 LIBKAR_PACKAGE=$(ls ${BUILD}/libkar-*)
 OPENCV_PACKAGE=$(ls ${BUILD}/opencv-*)
 
-############
-# Computer #
-############
+#######
+# cs2 #
+#######
 
-COMPUTER_BASE="${PACKAGE}"
-COMPUTER_EXTRAS="${COMPUTER_BASE}"
+CS2_BASE="${PACKAGE}"
+CS2_EXTRAS="${CS2_BASE}"
 
 # Mac OS X Bundle
 if [[ ${OS_NAME} == "Darwin" ]]; then
-	COMPUTER_EXTRAS="${COMPUTER_BASE}/computer.app/Contents"
+	CS2_EXTRAS="${CS2_BASE}/cs2.app/Contents"
 fi
 
 # Install Base
-mkdir -p ${COMPUTER_BASE}
-cp -r computer/deploy/* ${COMPUTER_BASE}
+mkdir -p ${CS2_BASE}
+cp -r cs2/deploy/* ${CS2_BASE}
 
 # These install the necessary shared libraries
 LIBKOVAN_PACKAGE=$(ls ${BUILD}/libkovan-*)
@@ -38,92 +38,41 @@ LIBKOVAN_HOST_PACKAGE=$(ls ${BUILD}/libkovan_host-*)
 OPENCV_HOST_PACKAGE=$(ls ${BUILD}/opencv_host-*)
 ZBAR_PACKAGE=$(ls ${BUILD}/zbar-*)
 ZBAR_HOST_PACKAGE=$(ls ${BUILD}/zbar_host-*)
-kissarchive -e ${PCOMPILER_PACKAGE%.*} ${COMPUTER_EXTRAS}
-kissarchive -e ${LIBKAR_PACKAGE%.*} ${COMPUTER_EXTRAS}
-kissarchive -e ${LIBKOVANSERIAL_PACKAGE%.*} ${COMPUTER_EXTRAS}
-kissarchive -e ${ZBAR_HOST_PACKAGE%.*} ${COMPUTER_EXTRAS}
-kissarchive -e ${LIBKOVAN_HOST_PACKAGE%.*} ${COMPUTER_EXTRAS}
-kissarchive -e ${ZBAR_PACKAGE%.*} ${COMPUTER_EXTRAS}/prefix
-kissarchive -e ${LIBKOVAN_PACKAGE%.*} ${COMPUTER_EXTRAS}/prefix
-kissarchive -e ${OPENCV_PACKAGE%.*} ${COMPUTER_EXTRAS}/prefix
-kissarchive -e ${OPENCV_HOST_PACKAGE%.*} ${COMPUTER_EXTRAS}
+kissarchive -e ${PCOMPILER_PACKAGE%.*} ${CS2_EXTRAS}
+kissarchive -e ${LIBKAR_PACKAGE%.*} ${CS2_EXTRAS}
+kissarchive -e ${LIBKOVANSERIAL_PACKAGE%.*} ${CS2_EXTRAS}
+kissarchive -e ${ZBAR_HOST_PACKAGE%.*} ${CS2_EXTRAS}
+kissarchive -e ${LIBKOVAN_HOST_PACKAGE%.*} ${CS2_EXTRAS}
+kissarchive -e ${ZBAR_PACKAGE%.*} ${CS2_EXTRAS}/prefix
+kissarchive -e ${LIBKOVAN_PACKAGE%.*} ${CS2_EXTRAS}/prefix
+kissarchive -e ${OPENCV_PACKAGE%.*} ${CS2_EXTRAS}/prefix
+kissarchive -e ${OPENCV_HOST_PACKAGE%.*} ${CS2_EXTRAS}
 
 if [[ ${OS_NAME} == "Darwin" ]]; then
-	echo "${COMPUTER_EXTRAS}/MacOS/computer"
-	install_name_tool -change "lib/libopencv_core.2.4.dylib" "@executable_path/../Frameworks/libopencv_core.2.4.dylib" ${COMPUTER_EXTRAS}/MacOS/computer
-	install_name_tool -change "lib/libopencv_highgui.2.4.dylib" "@executable_path/../Frameworks/libopencv_highgui.2.4.dylib" ${COMPUTER_EXTRAS}/MacOS/computer
-	install_name_tool -change "lib/libopencv_imgproc.2.4.dylib" "@executable_path/../Frameworks/libopencv_imgproc.2.4.dylib" ${COMPUTER_EXTRAS}/MacOS/computer
+	echo "${CS2_EXTRAS}/MacOS/cs2"
+	install_name_tool -change "lib/libopencv_core.3.0.dylib" "@executable_path/../Frameworks/libopencv_core.dylib" ${CS2_EXTRAS}/MacOS/cs2
+	install_name_tool -change "lib/libopencv_highgui.3.0.dylib" "@executable_path/../Frameworks/libopencv_highgui.dylib" ${CS2_EXTRAS}/MacOS/cs2
+	install_name_tool -change "lib/libopencv_imgproc.3.0.dylib" "@executable_path/../Frameworks/libopencv_imgproc.dylib" ${CS2_EXTRAS}/MacOS/cs2
 	
 	# Make libkovan use bundled libzbar
-	framework_path="${PWD}/${PACKAGE}/computer.app/Contents/Frameworks"
+	framework_path="${PWD}/${PACKAGE}/cs2.app/Contents/Frameworks"
 	for i in $(ls -1 ${framework_path}/*.dylib)
         do
 		install_name_tool -change "/usr/local/lib/libzbar.0.dylib" "@executable_path/../Frameworks/libzbar.0.dylib" ${i}
-		install_name_tool -change "lib/libopencv_core.2.4.dylib" "@executable_path/../Frameworks/libopencv_core.2.4.dylib" ${i}
-		install_name_tool -change "lib/libopencv_highgui.2.4.dylib" "@executable_path/../Frameworks/libopencv_highgui.2.4.dylib" ${i}
-		install_name_tool -change "lib/libopencv_imgproc.2.4.dylib" "@executable_path/../Frameworks/libopencv_imgproc.2.4.dylib" ${i}
+		install_name_tool -change "${CMAKE_PREFIX_PATH}/lib/QtCore.framework/Versions/5/QtCore" "@executable_path/../Frameworks/QtCore.framework/Versions/5/QtCore" ${i}
+		install_name_tool -change "lib/libopencv_core.3.0.dylib" "@executable_path/../Frameworks/libopencv_core.dylib" ${i}
+		install_name_tool -change "lib/libopencv_highgui.3.0.dylib" "@executable_path/../Frameworks/libopencv_highgui.dylib" ${i}
+		install_name_tool -change "lib/libopencv_imgproc.3.0.dylib" "@executable_path/../Frameworks/libopencv_imgproc.dylib" ${i}
         done
 
-	lib_path="${PWD}/${PACKAGE}/computer.app/Contents/prefix/usr/lib"
-	for i in $(ls -1 ${lib_path}/*.dylib)
-        do
-		install_name_tool -change "/usr/local/lib/libzbar.0.dylib" "lib/libzbar.0.dylib" ${i}
-	done
-fi
-
-#######
-# ks2 #
-#######
-
-KS2_BASE="${PACKAGE}"
-KS2_EXTRAS="${KS2_BASE}"
-
-# Mac OS X Bundle
-if [[ ${OS_NAME} == "Darwin" ]]; then
-	KS2_EXTRAS="${KS2_BASE}/ks2.app/Contents"
-fi
-
-# Install Base
-mkdir -p ${KS2_BASE}
-cp -r ks2/deploy/* ${KS2_BASE}
-
-# These install the necessary shared libraries
-LIBKOVAN_PACKAGE=$(ls ${BUILD}/libkovan-*)
-LIBKOVAN_HOST_PACKAGE=$(ls ${BUILD}/libkovan_host-*)
-OPENCV_HOST_PACKAGE=$(ls ${BUILD}/opencv_host-*)
-ZBAR_PACKAGE=$(ls ${BUILD}/zbar-*)
-ZBAR_HOST_PACKAGE=$(ls ${BUILD}/zbar_host-*)
-kissarchive -e ${PCOMPILER_PACKAGE%.*} ${KS2_EXTRAS}
-kissarchive -e ${LIBKAR_PACKAGE%.*} ${KS2_EXTRAS}
-kissarchive -e ${LIBKOVANSERIAL_PACKAGE%.*} ${KS2_EXTRAS}
-kissarchive -e ${ZBAR_HOST_PACKAGE%.*} ${KS2_EXTRAS}
-kissarchive -e ${LIBKOVAN_HOST_PACKAGE%.*} ${KS2_EXTRAS}
-kissarchive -e ${ZBAR_PACKAGE%.*} ${KS2_EXTRAS}/prefix
-kissarchive -e ${LIBKOVAN_PACKAGE%.*} ${KS2_EXTRAS}/prefix
-kissarchive -e ${OPENCV_PACKAGE%.*} ${KS2_EXTRAS}/prefix
-kissarchive -e ${OPENCV_HOST_PACKAGE%.*} ${KS2_EXTRAS}
-
-if [[ ${OS_NAME} == "Darwin" ]]; then
-	echo "${KS2_EXTRAS}/MacOS/ks2"
-	install_name_tool -change "lib/libopencv_core.2.4.dylib" "@executable_path/../Frameworks/libopencv_core.2.4.dylib" ${COMPUTER_EXTRAS}/MacOS/computer
-	install_name_tool -change "lib/libopencv_highgui.2.4.dylib" "@executable_path/../Frameworks/libopencv_highgui.2.4.dylib" ${COMPUTER_EXTRAS}/MacOS/computer
-	install_name_tool -change "lib/libopencv_imgproc.2.4.dylib" "@executable_path/../Frameworks/libopencv_imgproc.2.4.dylib" ${COMPUTER_EXTRAS}/MacOS/computer
-	
-	# Make libkovan use bundled libzbar
-	framework_path="${PWD}/${PACKAGE}/ks2.app/Contents/Frameworks"
-	for i in $(ls -1 ${framework_path}/*.dylib)
-        do
-		install_name_tool -change "/usr/local/lib/libzbar.0.dylib" "@executable_path/../Frameworks/libzbar.0.dylib" ${i}
-		install_name_tool -change "lib/libopencv_core.2.4.dylib" "@executable_path/../Frameworks/libopencv_core.2.4.dylib" ${i}
-		install_name_tool -change "lib/libopencv_highgui.2.4.dylib" "@executable_path/../Frameworks/libopencv_highgui.2.4.dylib" ${i}
-		install_name_tool -change "lib/libopencv_imgproc.2.4.dylib" "@executable_path/../Frameworks/libopencv_imgproc.2.4.dylib" ${i}
-        done
-
-	lib_path="${PWD}/${PACKAGE}/ks2.app/Contents/prefix/usr/lib"
-	for i in $(ls -1 ${lib_path}/*.dylib)
-        do
-		install_name_tool -change "/usr/local/lib/libzbar.0.dylib" "lib/libzbar.0.dylib" ${i}
-	done
+  	lib_path="${PWD}/${PACKAGE}/cs2.app/Contents/prefix/usr/lib"
+  	for i in $(ls -1 ${lib_path}/*.dylib)
+          do
+  		install_name_tool -change "/usr/local/lib/libzbar.0.dylib" "lib/libzbar.0.dylib" ${i}
+      install_name_tool -change "lib/libopencv_core.3.0.dylib" "lib/libopencv_core.dylib" ${i}
+      install_name_tool -change "lib/libopencv_highgui.3.0.dylib" "lib/libopencv_highgui.dylib" ${i}
+      install_name_tool -change "lib/libopencv_imgproc.3.0.dylib" "lib/libopencv_imgproc.dylib" ${i}
+  	done
 fi
 
 
@@ -152,7 +101,17 @@ mkdir -p ${KISS_EXTRAS}/docs/libkovan
 cp -r link-docs/* ${KISS_EXTRAS}/docs
 cp -r libkovan/doc/* ${KISS_EXTRAS}/docs/libkovan
 
+
+
 # These install the necessary shared libraries
 kissarchive -e ${PCOMPILER_PACKAGE%.*} ${KISS_EXTRAS}
 kissarchive -e ${LIBKOVANSERIAL_PACKAGE%.*} ${KISS_EXTRAS}
 kissarchive -e ${LIBKAR_PACKAGE%.*} ${KISS_EXTRAS}
+
+framework_path="${PWD}/${PACKAGE}/KISS.app/Contents/Frameworks"
+for i in $(ls -1 ${framework_path}/*.dylib)
+do
+  echo "${i}"
+  echo "${CMAKE_PREFIX_PATH}/lib/QtCore/Versions/5/QtCore"
+install_name_tool -change "${CMAKE_PREFIX_PATH}/lib/QtCore.framework/Versions/5/QtCore" "@executable_path/../Frameworks/QtCore.framework/Versions/5/QtCore" ${i}
+done
