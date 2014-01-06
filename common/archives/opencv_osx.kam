@@ -24,28 +24,119 @@ kiss-prefix/include/opencv/ml.h => usr/include/opencv/ml.h
 
 usr/include/opencv2
 
+kiss-prefix/include/opencv2/bioinspired.hpp => usr/include/opencv2/bioinspired.hpp
+kiss-prefix/include/opencv2/calib3d.hpp => usr/include/opencv2/calib3d.hpp
+kiss-prefix/include/opencv2/contrib.hpp => usr/include/opencv2/contrib.hpp
+kiss-prefix/include/opencv2/core.hpp => usr/include/opencv2/core.hpp
+kiss-prefix/include/opencv2/cuda.hpp => usr/include/opencv2/cuda.hpp
+kiss-prefix/include/opencv2/cudaarithm.hpp => usr/include/opencv2/cudaarithm.hpp
+kiss-prefix/include/opencv2/cudabgsegm.hpp => usr/include/opencv2/cudabgsegm.hpp
+kiss-prefix/include/opencv2/cudafeatures2d.hpp => usr/include/opencv2/cudafeatures2d.hpp
+kiss-prefix/include/opencv2/cudafilters.hpp => usr/include/opencv2/cudafilters.hpp
+kiss-prefix/include/opencv2/cudaimgproc.hpp => usr/include/opencv2/cudaimgproc.hpp
+kiss-prefix/include/opencv2/cudaoptflow.hpp => usr/include/opencv2/cudaoptflow.hpp
+kiss-prefix/include/opencv2/cudastereo.hpp => usr/include/opencv2/cudastereo.hpp
+kiss-prefix/include/opencv2/cudawarping.hpp => usr/include/opencv2/cudawarping.hpp
+kiss-prefix/include/opencv2/features2d.hpp => usr/include/opencv2/features2d.hpp
+kiss-prefix/include/opencv2/flann.hpp => usr/include/opencv2/flann.hpp
+kiss-prefix/include/opencv2/highgui.hpp => usr/include/opencv2/highgui.hpp
+kiss-prefix/include/opencv2/imgproc.hpp => usr/include/opencv2/imgproc.hpp
+kiss-prefix/include/opencv2/legacy.hpp => usr/include/opencv2/legacy.hpp
+kiss-prefix/include/opencv2/ml.hpp => usr/include/opencv2/ml.hpp
+kiss-prefix/include/opencv2/nonfree.hpp => usr/include/opencv2/nonfree.hpp
+kiss-prefix/include/opencv2/objdetect.hpp => usr/include/opencv2/objdetect.hpp
+kiss-prefix/include/opencv2/ocl.hpp => usr/include/opencv2/ocl.hpp
+kiss-prefix/include/opencv2/opencv.hpp => usr/include/opencv2/opencv.hpp
+kiss-prefix/include/opencv2/opencv_modules.hpp => usr/include/opencv2/opencv_modules.hpp
+kiss-prefix/include/opencv2/optim.hpp => usr/include/opencv2/optim.hpp
+kiss-prefix/include/opencv2/photo.hpp => usr/include/opencv2/photo.hpp
+kiss-prefix/include/opencv2/shape.hpp => usr/include/opencv2/shape.hpp
+kiss-prefix/include/opencv2/softcascade.hpp => usr/include/opencv2/softcascade.hpp
+kiss-prefix/include/opencv2/stitching.hpp => usr/include/opencv2/stitching.hpp
+kiss-prefix/include/opencv2/superres.hpp => usr/include/opencv2/superres.hpp
+kiss-prefix/include/opencv2/ts.hpp => usr/include/opencv2/ts.hpp
+kiss-prefix/include/opencv2/video.hpp => usr/include/opencv2/video.hpp
+kiss-prefix/include/opencv2/videostab.hpp => usr/include/opencv2/videostab.hpp
+
+usr/include/opencv2/bioinspired
+kiss-prefix/include/opencv2/bioinspired/bioinspired.hpp => usr/include/opencv2/bioinspired/bioinspired.hpp
+kiss-prefix/include/opencv2/bioinspired/retina.hpp => usr/include/opencv2/bioinspired/retina.hpp
+kiss-prefix/include/opencv2/bioinspired/retinafasttonemapping.hpp => usr/include/opencv2/bioinspired/retinafasttonemapping.hpp
+
 usr/include/opencv2/calib3d
+kiss-prefix/include/opencv2/calib3d/calib3d_c.h => usr/include/opencv2/calib3d/calib3d_c.h
 kiss-prefix/include/opencv2/calib3d/calib3d.hpp => usr/include/opencv2/calib3d/calib3d.hpp
 
 usr/include/opencv2/contrib
+kiss-prefix/include/opencv2/contrib/compat.hpp => usr/include/opencv2/contrib/compat.hpp
 kiss-prefix/include/opencv2/contrib/contrib.hpp => usr/include/opencv2/contrib/contrib.hpp
 kiss-prefix/include/opencv2/contrib/detection_based_tracker.hpp => usr/include/opencv2/contrib/detection_based_tracker.hpp
 kiss-prefix/include/opencv2/contrib/hybridtracker.hpp => usr/include/opencv2/contrib/hybridtracker.hpp
-kiss-prefix/include/opencv2/contrib/retina.hpp => usr/include/opencv2/contrib/retina.hpp
+kiss-prefix/include/opencv2/contrib/openfabmap.hpp => usr/include/opencv2/contrib/openfabmap.hpp
 
 usr/include/opencv2/core
+kiss-prefix/include/opencv2/core/affine.hpp => usr/include/opencv2/core/affine.hpp
+kiss-prefix/include/opencv2/core/base.hpp => usr/include/opencv2/core/base.hpp
 kiss-prefix/include/opencv2/core/core.hpp => usr/include/opencv2/core/core.hpp
 kiss-prefix/include/opencv2/core/core_c.h => usr/include/opencv2/core/core_c.h
-kiss-prefix/include/opencv2/core/devmem2d.hpp => usr/include/opencv2/core/devmem2d.hpp
+kiss-prefix/include/opencv2/core/cuda_stream_accessor.hpp => usr/include/opencv2/core/cuda_stream_accessor.hpp
+kiss-prefix/include/opencv2/core/cuda_types.hpp => usr/include/opencv2/core/cuda_types.hpp
+kiss-prefix/include/opencv2/core/cuda.hpp => usr/include/opencv2/core/cuda.hpp
+kiss-prefix/include/opencv2/core/cuda.inl.hpp => usr/include/opencv2/core/cuda.inl.hpp
+kiss-prefix/include/opencv2/core/cvdef.h => usr/include/opencv2/core/cvdef.h
+kiss-prefix/include/opencv2/core/cvstd.hpp => usr/include/opencv2/core/cvstd.hpp
+kiss-prefix/include/opencv2/core/cvstd.inl.hpp => usr/include/opencv2/core/cvstd.inl.hpp
 kiss-prefix/include/opencv2/core/eigen.hpp => usr/include/opencv2/core/eigen.hpp
-kiss-prefix/include/opencv2/core/gpumat.hpp => usr/include/opencv2/core/gpumat.hpp
-kiss-prefix/include/opencv2/core/internal.hpp => usr/include/opencv2/core/internal.hpp
 kiss-prefix/include/opencv2/core/mat.hpp => usr/include/opencv2/core/mat.hpp
-kiss-prefix/include/opencv2/core/opengl_interop.hpp => usr/include/opencv2/core/opengl_interop.hpp
+kiss-prefix/include/opencv2/core/mat.inl.hpp => usr/include/opencv2/core/mat.inl.hpp
+kiss-prefix/include/opencv2/core/matx.hpp => usr/include/opencv2/core/matx.hpp
+kiss-prefix/include/opencv2/core/ocl.hpp => usr/include/opencv2/core/ocl.hpp
+kiss-prefix/include/opencv2/core/opengl.hpp => usr/include/opencv2/core/opengl.hpp
 kiss-prefix/include/opencv2/core/operations.hpp => usr/include/opencv2/core/operations.hpp
+kiss-prefix/include/opencv2/core/persistence.hpp => usr/include/opencv2/core/persistence.hpp
+kiss-prefix/include/opencv2/core/private.cuda.hpp => usr/include/opencv2/core/private.cuda.hpp
+kiss-prefix/include/opencv2/core/private.hpp => usr/include/opencv2/core/private.hpp
+kiss-prefix/include/opencv2/core/ptr.inl.hpp => usr/include/opencv2/core/ptr.inl.hpp
+kiss-prefix/include/opencv2/core/traits.hpp => usr/include/opencv2/core/traits.hpp
 kiss-prefix/include/opencv2/core/types_c.h => usr/include/opencv2/core/types_c.h
+kiss-prefix/include/opencv2/core/types.hpp => usr/include/opencv2/core/types.hpp
+kiss-prefix/include/opencv2/core/utility.hpp => usr/include/opencv2/core/utility.hpp
 kiss-prefix/include/opencv2/core/version.hpp => usr/include/opencv2/core/version.hpp
 kiss-prefix/include/opencv2/core/wimage.hpp => usr/include/opencv2/core/wimage.hpp
+
+usr/include/opencv2/core/cuda
+kiss-prefix/include/opencv2/core/cuda/block.hpp => usr/include/opencv2/core/cuda/block.hpp
+kiss-prefix/include/opencv2/core/cuda/border_interpolate.hpp => usr/include/opencv2/core/cuda/border_interpolate.hpp
+kiss-prefix/include/opencv2/core/cuda/color.hpp => usr/include/opencv2/core/cuda/clock.hpp
+kiss-prefix/include/opencv2/core/cuda/common.hpp => usr/include/opencv2/core/cuda/common.hpp
+kiss-prefix/include/opencv2/core/cuda/datamov_utils.hpp => usr/include/opencv2/core/cuda/datamov_utils.hpp
+kiss-prefix/include/opencv2/core/cuda/dynamic_smem.hpp => usr/include/opencv2/core/cuda/dynamic_smem.hpp
+kiss-prefix/include/opencv2/core/cuda/emulation.hpp => usr/include/opencv2/core/cuda/emulation.hpp
+kiss-prefix/include/opencv2/core/cuda/filters.hpp => usr/include/opencv2/core/cuda/filters.hpp
+kiss-prefix/include/opencv2/core/cuda/funcattrib.hpp => usr/include/opencv2/core/cuda/funcattrib.hpp
+kiss-prefix/include/opencv2/core/cuda/functional.hpp => usr/include/opencv2/core/cuda/functional.hpp
+kiss-prefix/include/opencv2/core/cuda/limits.hpp => usr/include/opencv2/core/cuda/limits.hpp
+kiss-prefix/include/opencv2/core/cuda/reduce.hpp => usr/include/opencv2/core/cuda/reduce.hpp
+kiss-prefix/include/opencv2/core/cuda/saturate_cast.hpp => usr/include/opencv2/core/cuda/saturate_cast.hpp
+kiss-prefix/include/opencv2/core/cuda/scan.hpp => usr/include/opencv2/core/cuda/scan.hpp
+kiss-prefix/include/opencv2/core/cuda/simd_functions.hpp => usr/include/opencv2/core/cuda/simd_functions.hpp
+kiss-prefix/include/opencv2/core/cuda/transform.hpp => usr/include/opencv2/core/cuda/transform.hpp
+kiss-prefix/include/opencv2/core/cuda/type_traits.hpp => usr/include/opencv2/core/cuda/type_traits.hpp
+kiss-prefix/include/opencv2/core/cuda/utility.hpp => usr/include/opencv2/core/cuda/utility.hpp
+kiss-prefix/include/opencv2/core/cuda/vec_distance.hpp => usr/include/opencv2/core/cuda/vec_distance.hpp
+kiss-prefix/include/opencv2/core/cuda/vec_math.hpp => usr/include/opencv2/core/cuda/vec_math.hpp
+kiss-prefix/include/opencv2/core/cuda/vec_traits.hpp => usr/include/opencv2/core/cuda/vec_traits.hpp
+kiss-prefix/include/opencv2/core/cuda/warp.hpp => usr/include/opencv2/core/cuda/warp.hpp
+kiss-prefix/include/opencv2/core/cuda/warp_reduce.hpp => usr/include/opencv2/core/cuda/warp_reduce.hpp
+kiss-prefix/include/opencv2/core/cuda/warp_shuffle.hpp => usr/include/opencv2/core/cuda/warp_shuffle.hpp
+
+usr/include/opencv2/core/cuda/detail
+kiss-prefix/include/opencv2/core/cuda/detail/color_detail.hpp => usr/include/opencv2/core/cuda/detail/color_detail.hpp
+kiss-prefix/include/opencv2/core/cuda/detail/reduce.hpp => usr/include/opencv2/core/cuda/detail/reduce.hpp
+kiss-prefix/include/opencv2/core/cuda/detail/reduce_key_val.hpp => usr/include/opencv2/core/cuda/detail/reduce_key_val.hpp
+kiss-prefix/include/opencv2/core/cuda/detail/transform_detail.hpp => usr/include/opencv2/core/cuda/detail/transform_detail.hpp
+kiss-prefix/include/opencv2/core/cuda/detail/type_traits_detail.hpp => usr/include/opencv2/core/cuda/detail/type_traits_detail.hpp
+kiss-prefix/include/opencv2/core/cuda/detail/vec_distance_detail.hpp => usr/include/opencv2/core/cuda/detail/vec_distance_detail.hpp
 
 usr/include/opencv2/features2d
 kiss-prefix/include/opencv2/features2d/features2d.hpp => usr/include/opencv2/features2d/features2d.hpp
@@ -88,15 +179,11 @@ kiss-prefix/include/opencv2/flann/saving.h => usr/include/opencv2/flann/saving.h
 kiss-prefix/include/opencv2/flann/simplex_downhill.h => usr/include/opencv2/flann/simplex_downhill.h
 kiss-prefix/include/opencv2/flann/timer.h => usr/include/opencv2/flann/timer.h
 
-usr/include/opencv2/gpu
-kiss-prefix/include/opencv2/gpu/devmem2d.hpp => usr/include/opencv2/gpu/devmem2d.hpp
-kiss-prefix/include/opencv2/gpu/gpu.hpp => usr/include/opencv2/gpu/gpu.hpp
-kiss-prefix/include/opencv2/gpu/gpumat.hpp => usr/include/opencv2/gpu/gpumat.hpp
-kiss-prefix/include/opencv2/gpu/stream_accessor.hpp => usr/include/opencv2/gpu/stream_accessor.hpp
-
 usr/include/opencv2/highgui
+kiss-prefix/include/opencv2/highgui/cap_ios.h => usr/include/opencv2/highgui/cap_ios.h
 kiss-prefix/include/opencv2/highgui/highgui.hpp => usr/include/opencv2/highgui/highgui.hpp
 kiss-prefix/include/opencv2/highgui/highgui_c.h => usr/include/opencv2/highgui/highgui_c.h
+kiss-prefix/include/opencv2/highgui/ios.h => usr/include/opencv2/highgui/ios.h
 
 usr/include/opencv2/imgproc
 kiss-prefix/include/opencv2/imgproc/imgproc.hpp => usr/include/opencv2/imgproc/imgproc.hpp
@@ -112,17 +199,38 @@ kiss-prefix/include/opencv2/legacy/streams.hpp => usr/include/opencv2/legacy/str
 usr/include/opencv2/ml
 kiss-prefix/include/opencv2/ml/ml.hpp => usr/include/opencv2/ml/ml.hpp
 
+usr/include/opencv2/nonfree
+kiss-prefix/include/opencv2/nonfree/cuda.hpp => usr/include/opencv2/nonfree/cuda.hpp
+kiss-prefix/include/opencv2/nonfree/features2d.hpp => usr/include/opencv2/nonfree/features2d.hpp
+kiss-prefix/include/opencv2/nonfree/nonfree.hpp => usr/include/opencv2/nonfree/nonfree.hpp
+kiss-prefix/include/opencv2/nonfree/ocl.hpp => usr/include/opencv2/nonfree/ocl.hpp
+
 usr/include/opencv2/objdetect
+kiss-prefix/include/opencv2/objdetect/erfilter.hpp => usr/include/opencv2/objdetect/erfilter.hpp
+kiss-prefix/include/opencv2/objdetect/linemod.hpp => usr/include/opencv2/objdetect/linemod.hpp
+kiss-prefix/include/opencv2/objdetect/objdetect_c.h => usr/include/opencv2/objdetect/objdetect_c.h
 kiss-prefix/include/opencv2/objdetect/objdetect.hpp => usr/include/opencv2/objdetect/objdetect.hpp
-kiss-prefix/include/opencv2/opencv.hpp => usr/include/opencv2/opencv.hpp
-kiss-prefix/include/opencv2/opencv_modules.hpp => usr/include/opencv2/opencv_modules.hpp
+
+usr/include/opencv2/ocl
+kiss-prefix/include/opencv2/ocl/matrix_operations.hpp => usr/include/opencv2/ocl/matrix_operations.hpp
+kiss-prefix/include/opencv2/ocl/ocl.hpp => usr/include/opencv2/ocl/ocl.hpp
+
+usr/include/opencv2/optim
+kiss-prefix/include/opencv2/optim/optim.hpp => usr/include/opencv2/optim/optim.hpp
 
 usr/include/opencv2/photo
+kiss-prefix/include/opencv2/photo/cuda.hpp => usr/include/opencv2/photo/cuda.hpp
 kiss-prefix/include/opencv2/photo/photo.hpp => usr/include/opencv2/photo/photo.hpp
 kiss-prefix/include/opencv2/photo/photo_c.h => usr/include/opencv2/photo/photo_c.h
 
+usr/include/opencv2/shape
+kiss-prefix/include/opencv2/shape/emdL1.hpp => usr/include/opencv2/shape/emdL1.hpp
+kiss-prefix/include/opencv2/shape/hist_cost.hpp => usr/include/opencv2/shape/hist_cost.hpp
+kiss-prefix/include/opencv2/shape/shape.hpp => usr/include/opencv2/shape/shape.hpp
+kiss-prefix/include/opencv2/shape/shape_distance.hpp => usr/include/opencv2/shape/shape_distance.hpp
+kiss-prefix/include/opencv2/shape/shape_transformer.hpp => usr/include/opencv2/shape/shape_transform.hpp
+
 usr/include/opencv2/stitching
-kiss-prefix/include/opencv2/stitching/stitcher.hpp => usr/include/opencv2/stitching/stitcher.hpp
 kiss-prefix/include/opencv2/stitching/warpers.hpp => usr/include/opencv2/stitching/warpers.hpp
 
 usr/include/opencv2/stitching/detail
@@ -138,13 +246,18 @@ kiss-prefix/include/opencv2/stitching/detail/util_inl.hpp => usr/include/opencv2
 kiss-prefix/include/opencv2/stitching/detail/warpers.hpp => usr/include/opencv2/stitching/detail/warpers.hpp
 kiss-prefix/include/opencv2/stitching/detail/warpers_inl.hpp => usr/include/opencv2/stitching/detail/warpers_inl.hpp
 
+usr/include/opencv2/superres
+kiss-prefix/include/opencv2/superres/optical_flow.hpp => usr/include/opencv2/superres/optical_flow.hpp
+
 usr/include/opencv2/ts
-kiss-prefix/include/opencv2/ts/ts.hpp => usr/include/opencv2/ts/ts.hpp
+kiss-prefix/include/opencv2/ts/cuda_perf.hpp => usr/include/opencv2/ts/cuda_perf.hpp
+kiss-prefix/include/opencv2/ts/cuda_test.hpp => usr/include/opencv2/ts/cuda_test.hpp
 kiss-prefix/include/opencv2/ts/ts_gtest.h => usr/include/opencv2/ts/ts_gtest.h
 kiss-prefix/include/opencv2/ts/ts_perf.hpp => usr/include/opencv2/ts/ts_perf.hpp
 
 usr/include/opencv2/video
 kiss-prefix/include/opencv2/video/background_segm.hpp => usr/include/opencv2/video/background_segm.hpp
+kiss-prefix/include/opencv2/video/tracking_c.h => usr/include/opencv2/video/tracking_c.h
 kiss-prefix/include/opencv2/video/tracking.hpp => usr/include/opencv2/video/tracking.hpp
 kiss-prefix/include/opencv2/video/video.hpp => usr/include/opencv2/video/video.hpp
 
@@ -156,10 +269,13 @@ kiss-prefix/include/opencv2/videostab/frame_source.hpp => usr/include/opencv2/vi
 kiss-prefix/include/opencv2/videostab/global_motion.hpp => usr/include/opencv2/videostab/global_motion.hpp
 kiss-prefix/include/opencv2/videostab/inpainting.hpp => usr/include/opencv2/videostab/inpainting.hpp
 kiss-prefix/include/opencv2/videostab/log.hpp => usr/include/opencv2/videostab/log.hpp
+kiss-prefix/include/opencv2/videostab/motion_core.hpp => usr/include/opencv2/videostab/motion_core.hpp
 kiss-prefix/include/opencv2/videostab/motion_stabilizing.hpp => usr/include/opencv2/videostab/motion_stabilizing.hpp
 kiss-prefix/include/opencv2/videostab/optical_flow.hpp => usr/include/opencv2/videostab/optical_flow.hpp
+kiss-prefix/include/opencv2/videostab/outlier_rejection.hpp => usr/include/opencv2/videostab/outlier_rejection.hpp
+kiss-prefix/include/opencv2/videostab/ring_buffer.hpp => usr/include/opencv2/videostab/ring_buffer.hpp
 kiss-prefix/include/opencv2/videostab/stabilizer.hpp => usr/include/opencv2/videostab/stabilizer.hpp
-kiss-prefix/include/opencv2/videostab/videostab.hpp => usr/include/opencv2/videostab/videostab.hpp
+kiss-prefix/include/opencv2/videostab/wobble_suppression.hpp => usr/include/opencv2/videostab/wobble_suppression.hpp
 
 ##############################
 #         Libraries          #
@@ -167,19 +283,34 @@ kiss-prefix/include/opencv2/videostab/videostab.hpp => usr/include/opencv2/video
 
 usr/lib
 
-kiss-prefix/lib/libopencv_calib3d.2.4.dylib => usr/lib/libopencv_calib3d.2.4.dylib
-kiss-prefix/lib/libopencv_contrib.2.4.dylib => usr/lib/libopencv_contrib.2.4.dylib
-kiss-prefix/lib/libopencv_core.2.4.dylib => usr/lib/libopencv_core.2.4.dylib
-kiss-prefix/lib/libopencv_features2d.2.4.dylib => usr/lib/libopencv_features2d.2.4.dylib
-kiss-prefix/lib/libopencv_flann.2.4.dylib => usr/lib/libopencv_flann.2.4.dylib
-kiss-prefix/lib/libopencv_gpu.2.4.dylib => usr/lib/libopencv_gpu.2.4.dylib
-kiss-prefix/lib/libopencv_highgui.2.4.dylib => usr/lib/libopencv_highgui.2.4.dylib
-kiss-prefix/lib/libopencv_imgproc.2.4.dylib => usr/lib/libopencv_imgproc.2.4.dylib
-kiss-prefix/lib/libopencv_legacy.2.4.dylib => usr/lib/libopencv_legacy.2.4.dylib
-kiss-prefix/lib/libopencv_ml.2.4.dylib => usr/lib/libopencv_ml.2.4.dylib
-kiss-prefix/lib/libopencv_objdetect.2.4.dylib => usr/lib/libopencv_objdetect.2.4.dylib
-kiss-prefix/lib/libopencv_photo.2.4.dylib => usr/lib/libopencv_photo.2.4.dylib
-kiss-prefix/lib/libopencv_stitching.2.4.dylib => usr/lib/libopencv_stitching.2.4.dylib
-kiss-prefix/lib/libopencv_ts.2.4.dylib => usr/lib/libopencv_ts.2.4.dylib
-kiss-prefix/lib/libopencv_video.2.4.dylib => usr/lib/libopencv_video.2.4.dylib
-kiss-prefix/lib/libopencv_videostab.2.4.dylib => usr/lib/libopencv_videostab.2.4.dylib
+kiss-prefix/lib/libopencv_bioinspired.3.0.0.dylib => usr/lib/libopencv_bioinspired.3.0.0.dylib
+kiss-prefix/lib/libopencv_calib3d.3.0.0.dylib => usr/lib/libopencv_calib3d.3.0.0.dylib
+kiss-prefix/lib/libopencv_contrib.3.0.0.dylib => usr/lib/libopencv_contrib.3.0.0.dylib
+kiss-prefix/lib/libopencv_core.3.0.0.dylib => usr/lib/libopencv_core.3.0.0.dylib
+kiss-prefix/lib/libopencv_cuda.3.0.0.dylib => usr/lib/libopencv_cuda.3.0.0.dylib
+kiss-prefix/lib/libopencv_cudaarithm.3.0.0.dylib => usr/lib/libopencv_cudaarithm.3.0.0.dylib
+kiss-prefix/lib/libopencv_cudabgsegm.3.0.0.dylib => usr/lib/libopencv_cudabgsegm.3.0.0.dylib
+kiss-prefix/lib/libopencv_cudafeatures2d.3.0.0.dylib => usr/lib/libopencv_cudafeatures2d.3.0.0.dylib
+kiss-prefix/lib/libopencv_cudafilters.3.0.0.dylib => usr/lib/libopencv_cudafilters.3.0.0.dylib
+kiss-prefix/lib/libopencv_cudaimgproc.3.0.0.dylib => usr/lib/libopencv_cudaimgproc.3.0.0.dylib
+kiss-prefix/lib/libopencv_cudaoptflow.3.0.0.dylib => usr/lib/libopencv_cudaoptflow.3.0.0.dylib
+kiss-prefix/lib/libopencv_cudastereo.3.0.0.dylib => usr/lib/libopencv_cudastereo.3.0.0.dylib
+kiss-prefix/lib/libopencv_cudawarping.3.0.0.dylib => usr/lib/libopencv_cudawarping.3.0.0.dylib
+kiss-prefix/lib/libopencv_features2d.3.0.0.dylib => usr/lib/libopencv_features2d.3.0.0.dylib
+kiss-prefix/lib/libopencv_flann.3.0.0.dylib => usr/lib/libopencv_flann.3.0.0.dylib
+kiss-prefix/lib/libopencv_highgui.3.0.0.dylib => usr/lib/libopencv_highgui.3.0.0.dylib
+kiss-prefix/lib/libopencv_imgproc.3.0.0.dylib => usr/lib/libopencv_imgproc.3.0.0.dylib
+kiss-prefix/lib/libopencv_legacy.3.0.0.dylib => usr/lib/libopencv_legacy.3.0.0.dylib
+kiss-prefix/lib/libopencv_ml.3.0.0.dylib => usr/lib/libopencv_ml.3.0.0.dylib
+kiss-prefix/lib/libopencv_nonfree.3.0.0.dylib => usr/lib/libopencv_nonfree.3.0.0.dylib
+kiss-prefix/lib/libopencv_objdetect.3.0.0.dylib => usr/lib/libopencv_objdetect.3.0.0.dylib
+kiss-prefix/lib/libopencv_ocl.3.0.0.dylib => usr/lib/libopencv_ocl.3.0.0.dylib
+kiss-prefix/lib/libopencv_optim.3.0.0.dylib => usr/lib/libopencv_optim.3.0.0.dylib
+kiss-prefix/lib/libopencv_photo.3.0.0.dylib => usr/lib/libopencv_photo.3.0.0.dylib
+kiss-prefix/lib/libopencv_shape.3.0.0.dylib => usr/lib/libopencv_shape.3.0.0.dylib
+kiss-prefix/lib/libopencv_softcascade.3.0.0.dylib => usr/lib/libopencv_softcascade.3.0.0.dylib
+kiss-prefix/lib/libopencv_stitching.3.0.0.dylib => usr/lib/libopencv_stitching.3.0.0.dylib
+kiss-prefix/lib/libopencv_superres.3.0.0.dylib => usr/lib/libopencv_superres.3.0.0.dylib
+kiss-prefix/lib/libopencv_ts.a => usr/lib/libopencv_ts.a
+kiss-prefix/lib/libopencv_video.3.0.0.dylib => usr/lib/libopencv_video.3.0.0.dylib
+kiss-prefix/lib/libopencv_videostab.3.0.0.dylib => usr/lib/libopencv_videostab.3.0.0.dylib
