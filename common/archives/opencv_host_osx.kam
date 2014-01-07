@@ -1,6 +1,6 @@
 Frameworks
 
-kiss-prefix/lib/libopencv_core.3.0.0.dylib => Frameworks/libopencv_core.3.0.0.dylib
-kiss-prefix/lib/libopencv_features2d.3.0.0.dylib => Frameworks/libopencv_features2d.3.0.0.dylib
-kiss-prefix/lib/libopencv_highgui.3.0.0.dylib => Frameworks/libopencv_highgui.3.0.0.dylib
-kiss-prefix/lib/libopencv_imgproc.3.0.0.dylib => Frameworks/libopencv_imgproc.3.0.0.dylib
+kiss-prefix/lib/libopencv_core.3.0.0.dylib => Frameworks/libopencv_core.dylib
+kiss-prefix/lib/libopencv_features2d.3.0.0.dylib => Frameworks/libopencv_features2d.dylib
+kiss-prefix/lib/libopencv_highgui.3.0.0.dylib => Frameworks/libopencv_highgui.dylib
+kiss-prefix/lib/libopencv_imgproc.3.0.0.dylib => Frameworks/libopencv_imgproc.dylib
