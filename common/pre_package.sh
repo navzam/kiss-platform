@@ -20,7 +20,7 @@ OPENCV_PACKAGE=$(ls ${BUILD}/opencv-*)
 # cs2 #
 #######
 
-CS2_BASE="${PACKAGE}"
+CS2_BASE="${PACKAGE}/KISS.app"
 CS2_EXTRAS="${CS2_BASE}"
 
 # Mac OS X Bundle
@@ -55,7 +55,7 @@ if [[ ${OS_NAME} == "Darwin" ]]; then
 	install_name_tool -change "lib/libopencv_imgproc.3.0.dylib" "@executable_path/../Frameworks/libopencv_imgproc.dylib" ${CS2_EXTRAS}/MacOS/cs2
 	
 	# Make libkovan use bundled libzbar
-	framework_path="${PWD}/${PACKAGE}/cs2.app/Contents/Frameworks"
+	framework_path="${PWD}/${CS2_BASE}/cs2.app/Contents/Frameworks"
 	for i in $(ls -1 ${framework_path}/*.dylib)
         do
 		install_name_tool -change "/usr/local/lib/libzbar.0.dylib" "@executable_path/../Frameworks/libzbar.0.dylib" ${i}
@@ -65,7 +65,7 @@ if [[ ${OS_NAME} == "Darwin" ]]; then
 		install_name_tool -change "lib/libopencv_imgproc.3.0.dylib" "@executable_path/../Frameworks/libopencv_imgproc.dylib" ${i}
         done
 
-  	lib_path="${PWD}/${PACKAGE}/cs2.app/Contents/prefix/usr/lib"
+  	lib_path="${PWD}/${CS2_BASE}/cs2.app/Contents/prefix/usr/lib"
   	for i in $(ls -1 ${lib_path}/*.dylib)
           do
   		install_name_tool -change "/usr/local/lib/libzbar.0.dylib" "lib/libzbar.0.dylib" ${i}
@@ -98,7 +98,7 @@ fi
 
 mkdir -p ${KISS_EXTRAS}/docs
 mkdir -p ${KISS_EXTRAS}/docs/libkovan
-cp -r link-docs/* ${KISS_EXTRAS}/docs
+cp -r "link-docs/KIPR Link C Standard Library" ${KISS_EXTRAS}/docs/0_kipr_doc
 cp -r libkovan/doc/* ${KISS_EXTRAS}/docs/libkovan
 
 
