@@ -47,6 +47,8 @@ kissarchive -e ${ZBAR_PACKAGE%.*} ${CS2_EXTRAS}/prefix
 kissarchive -e ${LIBKOVAN_PACKAGE%.*} ${CS2_EXTRAS}/prefix
 kissarchive -e ${OPENCV_PACKAGE%.*} ${CS2_EXTRAS}/prefix
 kissarchive -e ${OPENCV_HOST_PACKAGE%.*} ${CS2_EXTRAS}
+cp OpenNI2/Bin/x64-Release/libOpenNI2.dylib ${CS2_EXTRAS}/Frameworks/libOpenNI2.dylib
+cp OpenNI2/Bin/x64-Release/libOpenNI2.dylib ${CS2_EXTRAS}/prefix/usr/lib/libOpenNI2.dylib
 
 if [[ ${OS_NAME} == "Darwin" ]]; then
 	echo "${CS2_EXTRAS}/MacOS/cs2"
@@ -63,6 +65,7 @@ if [[ ${OS_NAME} == "Darwin" ]]; then
 		install_name_tool -change "lib/libopencv_core.3.0.dylib" "@executable_path/../Frameworks/libopencv_core.dylib" ${i}
 		install_name_tool -change "lib/libopencv_highgui.3.0.dylib" "@executable_path/../Frameworks/libopencv_highgui.dylib" ${i}
 		install_name_tool -change "lib/libopencv_imgproc.3.0.dylib" "@executable_path/../Frameworks/libopencv_imgproc.dylib" ${i}
+    install_name_tool -change "libOpenNI2.dylib" "@executable_path/../Frameworks/libOpenNI2.dylib" ${i}
         done
 
   	lib_path="${PWD}/${CS2_BASE}/cs2.app/Contents/prefix/usr/lib"
@@ -72,6 +75,7 @@ if [[ ${OS_NAME} == "Darwin" ]]; then
       install_name_tool -change "lib/libopencv_core.3.0.dylib" "lib/libopencv_core.dylib" ${i}
       install_name_tool -change "lib/libopencv_highgui.3.0.dylib" "lib/libopencv_highgui.dylib" ${i}
       install_name_tool -change "lib/libopencv_imgproc.3.0.dylib" "lib/libopencv_imgproc.dylib" ${i}
+      install_name_tool -change "libOpenNI2.dylib" "lib/libOpenNI2.dylib" ${i}
   	done
 fi
 

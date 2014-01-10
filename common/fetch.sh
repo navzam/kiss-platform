@@ -82,4 +82,5 @@ update_git git://github.com/kipr/cs2.git cs2
 update_tar http://downloads.sourceforge.net/project/zbar/zbar/0.10/zbar-0.10.tar.bz2 zbar-0.10
 update_git git://github.com/kipr/libkovan.git libkovan
 update_git git://github.com/Itseez/opencv opencv
+update_git git://github.com/OpenNI/OpenNI2 OpenNI2
 update_git git://github.com/kipr/link-docs.git link-docs
