@@ -2,15 +2,12 @@ libkovan
 libkovanserial
 libkar
 kiss
-ks2
-computer
-libkiss2
+cs2
 package
 opencv
-libkiss
+OpenNI2
 pcompiler
 link-docs
-blobtastic
 build
 zbar*
 prefix
